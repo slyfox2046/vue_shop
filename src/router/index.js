@@ -47,6 +47,7 @@ router.beforeEach((to, from, next) => {
   const tokenStr = window.localStorage.getItem('token')
   console.log(tokenStr)
   if (!tokenStr) return next('/login')
+    // 必须有next()
   next()
 })
 
