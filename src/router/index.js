@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
 // @标识src目录
 import Home from '@/components/Home.vue'
 import Login from '@/components/Login.vue'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/login'
   },
   {
     path: '/login',
@@ -22,6 +22,11 @@ const routes = [
     component: Home
   }
   // {
+  //   path: '/home',
+  //   name: 'home',
+  //   component: Home
+  // }
+  // // {
   //   path: '/about',
   //   name: 'About',
   //   // route level code-splitting
@@ -42,6 +47,7 @@ router.beforeEach((to, from, next) => {
   const tokenStr = window.localStorage.getItem('token')
   console.log(tokenStr)
   if (!tokenStr) return next('/login')
+  next()
 })
 
 export default router

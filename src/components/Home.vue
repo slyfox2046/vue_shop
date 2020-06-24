@@ -1,6 +1,6 @@
 <template>
   <div>
-    123
+
     <el-button type="info" @click="logout">
       退出
     </el-button>
@@ -8,6 +8,10 @@
 </template>
 <script>
 export default {
+  data() {
+    return {}
+  },
+
   methods: {
     logout() {
       window.localStorage.clear()
